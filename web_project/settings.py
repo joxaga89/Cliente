@@ -85,11 +85,18 @@ WSGI_APPLICATION = 'web_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-          default='sqlite:///db.sqlite3',
-        conn_max_age=600
-    )
+DATABASES = {  
+ 'default':{
+     'ENGINE': 'mssql',
+     'NAME': 'Clientes',
+     'USER': 'sa',
+     'PASSWORD':'024680',
+     'HOST': 'DiosEsVida\SQLEXPRESS',
+     'PORT': '',
+     'OPTIONS':{
+                'driver': 'ODBC Driver 13 for SQL Server' 
+               }
+     }
 }
 
 
