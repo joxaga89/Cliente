@@ -1,0 +1,114 @@
+/* styles.css */
+.custom-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .custom-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .custom-label {
+    font-weight: bold;
+  }
+  
+  .custom-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .cliente-form {
+    max-width: 400px;
+    margin-top: 20px;
+  }
+
+  /* styles.css */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  
+  .listado-clientes {
+    width: 45%;
+  }
+  
+  .formulario-cliente {
+    width: 45%;
+  }
+  
+  .formulario-cliente form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .formulario-cliente mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .formulario-cliente button {
+    margin-top: 15px;
+  }
+  
+  /* styles.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .cliente-form {
+    width: 300px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* styles.css */
+.cliente-form {
+    width: 600px;
+    margin: auto;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .form-title {
+    text-align: center;
+  }
+  
+  .table-container {
+    max-height: 300px; /* Altura máxima de la tabla */
+    overflow-y: auto; /* Añade barra de desplazamiento vertical si el contenido excede la altura máxima */
+  }

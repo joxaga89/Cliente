@@ -1,26 +1,102 @@
 <!-- cliente.component.html -->
-<h2>Listado de Clientes</h2>
-<div *ngFor="let cliente of clientes">
-  <p>{{ cliente.id }} | {{ cliente.nombre }} | {{ cliente.cedula }} | {{ cliente.edad }} | {{ cliente.telefono }} | {{ cliente.correo }}</p>
-  <button (click)="consultarCliente(cliente.id)">Seleccionar</button>
-  <button (click)="eliminarCliente(cliente.id)">Eliminar</button>
-  <hr>
+<h2 class="form-title">Listado de Clientes</h2>
+<div class="table-container">
+  <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.id }} </td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.nombre }} </td>
+    </ng-container>
+
+    <!-- Cédula Column -->
+    <ng-container matColumnDef="cedula">
+      <th mat-header-cell *matHeaderCellDef> Cédula </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.cedula }} </td>
+    </ng-container>
+
+    <!-- Edad Column -->
+    <ng-container matColumnDef="edad">
+      <th mat-header-cell *matHeaderCellDef> Edad </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.edad }} </td>
+    </ng-container>
+
+    <!-- Teléfono Column -->
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.telefono }} </td>
+    </ng-container>
+
+    <!-- Correo Column -->
+    <ng-container matColumnDef="correo">
+      <th mat-header-cell *matHeaderCellDef> Correo </th>
+      <td mat-cell *matCellDef="let cliente"> {{ cliente.correo }} </td>
+    </ng-container>
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let cliente">
+        <button mat-icon-button color="primary" (click)="onSeleccionarCliente(cliente)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="eliminarCliente(cliente.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Encabezado de fila -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    
+    <!-- Cuerpo de la tabla -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>
 
-<h2>Formulario de Cliente</h2>
-<form [formGroup]="clienteForm">
-  <label for="id">id:</label>
-  <input type="text" formControlName="id"><br>
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" formControlName="nombre"><br>
-  <label for="cedula">Cédula:</label>
-  <input type="text" id="cedula" formControlName="cedula"><br>
-  <label for="edad">Edad:</label>
-  <input type="number" id="edad" formControlName="edad"><br>
-  <label for="telefono">Teléfono:</label>
-  <input type="text" id="telefono" formControlName="telefono"><br>
-  <label for="correo">Correo:</label>
-  <input type="text" id="correo" formControlName="correo"><br>
-  <button (click)="guardarCliente()">Guardar Cliente</button>
-  <button (click)="actualizarCliente()">Actualizar Cliente</button>
+<!-- cliente.component.html -->
+<h2 class="form-title">Formulario de Cliente</h2>
+<form [formGroup]="clienteForm" class="cliente-form">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="id" class="custom-label">id:</label>
+      <input type="text" formControlName="id" class="custom-input">
+    </div>
+    <div class="form-group">
+      <label for="nombre" class="custom-label">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" class="custom-input">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="cedula" class="custom-label">Cédula:</label>
+      <input type="text" id="cedula" formControlName="cedula" class="custom-input">
+    </div>
+    <div class="form-group">
+      <label for="edad" class="custom-label">Edad:</label>
+      <input type="number" id="edad" formControlName="edad" class="custom-input">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="telefono" class="custom-label">Teléfono:</label>
+      <input type="text" id="telefono" formControlName="telefono" class="custom-input">
+    </div>
+    <div class="form-group">
+      <label for="correo" class="custom-label">Correo:</label>
+      <input type="text" id="correo" formControlName="correo" class="custom-input">
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="custom-button" (click)="guardarCliente()">Guardar Cliente</button>
+    <button class="custom-button" (click)="actualizarCliente()">Actualizar Cliente</button>
+  </div>
 </form>

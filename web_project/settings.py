@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'web_project.wsgi.application'
 DATABASES = {  
  'default':{
      'ENGINE': 'mssql',
-     'NAME': 'Clientes',
+     'NAME': 'Clientes-Django',
      'USER': 'sa',
      'PASSWORD':'0157980',
      'HOST': 'DiosEsVida\SQLEXPRESS',
@@ -123,8 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    # Especifica aquí tus orígenes permitidos
    'http://localhost:4200',
-   "http://localhost:8080",  # Especifica aquí tus orígenes permitidos
+   "http://localhost:8080",  
    "http://127.0.0.1:8080"
  ]
 
@@ -149,5 +150,5 @@ if not DEBUG:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ALLOW_ALL_HEADERS=True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_HEADERS=True

@@ -3,7 +3,6 @@ import { Cliente } from '../cliente/cliente.model';
 import { ClienteApiService } from '../cliente/cliente-api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
@@ -12,15 +11,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ClienteComponent {
   clientes: Cliente[] = [];
   clienteForm: FormGroup;
-
+  displayedColumns = ['id', 'nombre', 'cedula', 'edad', 'telefono', 'correo', 'acciones'];
+ 
   constructor(private clienteService: ClienteApiService, private fb: FormBuilder) {
     this.clienteForm = this.fb.group({
-      id: [],
+      id: [''],
       nombre: ['', Validators.required],
       cedula: ['', Validators.required],
       edad: ['', Validators.required],
       telefono: ['', Validators.required],
-      correo: ['', Validators.required]
+      correo: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -29,16 +29,20 @@ export class ClienteComponent {
     console.log(this.clientes);
   }
 
+  // Método para obtener el control del campo de email
+  get email() {
+    return this.clienteForm.get('correo');
+  }
+
   listarClientes(): void {
     this.clienteService.listarClientes().subscribe(clientes => {
       this.clientes = clientes;
     });
   }
 
-  consultarCliente(id: number): void {
+  seleccionarCliente(id: number): void {
     this.clienteService.getCliente(id).subscribe(cliente => {
-      console.log('Consultar cliente:', cliente);
-      // Implementar lógica de consulta
+      console.log('Seleccionar cliente:', cliente);
     });
   }
 
@@ -70,5 +74,15 @@ export class ClienteComponent {
 
   onSeleccionarCliente(cliente: Cliente): void {
     this.clienteForm.patchValue(cliente);
+  }
+  // Método para manejar el envío del formulario
+  onSubmit() {
+    if (this.clienteForm.valid) {
+      // Hacer algo cuando el formulario sea válido
+      console.log('Formulario válido, datos:', this.clienteForm.value);
+    } else {
+      // Hacer algo cuando el formulario sea inválido
+      console.log('Formulario inválido');
+    }
   }
 }
