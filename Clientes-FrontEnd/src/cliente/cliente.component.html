@@ -1,0 +1,26 @@
+<!-- cliente.component.html -->
+<h2>Listado de Clientes</h2>
+<div *ngFor="let cliente of clientes">
+  <p>{{ cliente.id }} | {{ cliente.nombre }} | {{ cliente.cedula }} | {{ cliente.edad }} | {{ cliente.telefono }} | {{ cliente.correo }}</p>
+  <button (click)="consultarCliente(cliente.id)">Consultar</button>
+  <button (click)="eliminarCliente(cliente.id)">Eliminar</button>
+  <hr>
+</div>
+
+<hr>
+<h2>Formulario de Cliente</h2>
+<form [formGroup]="clienteForm">
+  <input type="hidden" formControlName="id">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" formControlName="nombre"><br>
+  <label for="cedula">Cédula:</label>
+  <input type="text" id="cedula" formControlName="cedula"><br>
+  <label for="edad">Edad:</label>
+  <input type="number" id="edad" formControlName="edad"><br>
+  <label for="telefono">Teléfono:</label>
+  <input type="text" id="telefono" formControlName="telefono"><br>
+  <label for="correo">Correo:</label>
+  <input type="text" id="correo" formControlName="correo"><br>
+  <button (click)="guardarCliente()">Guardar Cliente</button>
+  <button (click)="actualizarCliente()">Actualizar Cliente</button>
+</form>

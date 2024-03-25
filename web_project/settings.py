@@ -40,6 +40,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
+     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,9 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Clientes',
     'rest_framework'
+    # 'Clientes.apps.ClientesConfig'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
      'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,7 +61,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+
 ]
 
 ROOT_URLCONF = 'web_project.urls'
@@ -90,7 +94,7 @@ DATABASES = {
      'ENGINE': 'mssql',
      'NAME': 'Clientes',
      'USER': 'sa',
-     'PASSWORD':'024680',
+     'PASSWORD':'0157980',
      'HOST': 'DiosEsVida\SQLEXPRESS',
      'PORT': '',
      'OPTIONS':{
@@ -118,6 +122,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CORS_ALLOWED_ORIGINS = [
+   'http://localhost:4200',
+   "http://localhost:8080",  # Especifica aquí tus orígenes permitidos
+   "http://127.0.0.1:8080"
+ ]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -138,3 +148,6 @@ if not DEBUG:
       STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_ALL_HEADERS=True
