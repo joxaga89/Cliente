@@ -2,12 +2,11 @@
 <h2>Listado de Clientes</h2>
 <div *ngFor="let cliente of clientes">
   <p>{{ cliente.id }} | {{ cliente.nombre }} | {{ cliente.cedula }} | {{ cliente.edad }} | {{ cliente.telefono }} | {{ cliente.correo }}</p>
-  <button (click)="consultarCliente(cliente.id)">Consultar</button>
+  <button (click)="consultarCliente(cliente.id)">Seleccionar</button>
   <button (click)="eliminarCliente(cliente.id)">Eliminar</button>
   <hr>
 </div>
 
-<hr>
 <h2>Formulario de Cliente</h2>
 <form [formGroup]="clienteForm">
   <label for="id">id:</label>
