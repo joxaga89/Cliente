@@ -8,12 +8,12 @@ import { Cliente } from '../cliente/cliente.model';
 })
 export class ClienteApiService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api/Clientes/';
+  private apiUrl = 'http://127.0.0.1:8000/api/Clientes';
 
   constructor(private http: HttpClient) { }
 
  listarClientes(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.apiUrl);
+    return this.http.get<Cliente[]>(`${this.apiUrl}/`);
   }
 
   getCliente(id: number): Observable<Cliente> {
@@ -21,7 +21,7 @@ export class ClienteApiService {
   }
 
   guardarCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.apiUrl, cliente);
+    return this.http.post<Cliente>(`${this.apiUrl}/`, cliente);
   }
 
   actualizarCliente(cliente: Cliente): Observable<Cliente> {
@@ -29,6 +29,6 @@ export class ClienteApiService {
   }
 
   eliminarCliente(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/${id}/`);
   }
 }

@@ -10,7 +10,8 @@
 <hr>
 <h2>Formulario de Cliente</h2>
 <form [formGroup]="clienteForm">
-  <input type="hidden" formControlName="id">
+  <label for="id">id:</label>
+  <input type="text" formControlName="id"><br>
   <label for="nombre">Nombre:</label>
   <input type="text" id="nombre" formControlName="nombre"><br>
   <label for="cedula">Cédula:</label>
