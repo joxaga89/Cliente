@@ -17,7 +17,7 @@ export class ClienteApiService {
   }
 
   getCliente(id: number): Observable<Cliente> {
-    return this.http.get<Cliente>(`${this.apiUrl}/${id}`);
+    return this.http.get<Cliente>(`${this.apiUrl}/${id}/`);
   }
 
   guardarCliente(cliente: Cliente): Observable<Cliente> {
@@ -25,7 +25,7 @@ export class ClienteApiService {
   }
 
   actualizarCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.put<Cliente>(`${this.apiUrl}/${cliente.id}`, cliente);
+    return this.http.put<Cliente>(`${this.apiUrl}/${cliente.id}/`, cliente);
   }
 
   eliminarCliente(id: number): Observable<any> {
