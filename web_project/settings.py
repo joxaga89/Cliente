@@ -40,7 +40,7 @@ APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [
-     'corsheaders',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Clientes',
-    'rest_framework'
+    'rest_framework',
+    'drf_yasg'
     # 'Clientes.apps.ClientesConfig'
 ]
 
@@ -62,7 +63,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
-
 ]
 
 ROOT_URLCONF = 'web_project.urls'
@@ -94,7 +94,7 @@ DATABASES = {
      'ENGINE': 'mssql',
      'NAME': 'Clientes-Django',
      'USER': 'sa',
-     'PASSWORD':'0157980',
+     'PASSWORD':'0157984',
      'HOST': 'DiosEsVida\SQLEXPRESS',
      'PORT': '',
      'OPTIONS':{
